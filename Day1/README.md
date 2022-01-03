@@ -227,3 +227,9 @@ If your artifactory container is running, you may access the Artifactory dashboa
 ```
 http://localhost:8081
 ```
+
+Default Login credentials for JFrog Artifactory will be
+<pre>
+User - admin
+Password - password
+</pre>
