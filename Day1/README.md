@@ -290,3 +290,61 @@ You need to update your pom.xml will distributionManagement section
 	</distributionManagement>
 </project>
 ```
+
+### Deploying artifacts to JFrog Artifactory
+```
+cd ~
+cd /home/rps/devops-jan-2022
+git pull
+cd Day1/hello
+mvn deploy
+```
+The expected output is
+<pre>
+[tektutor hello]$ mvn deploy
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< org.tektutor:tektutor-helloworld-app >----------------
+[INFO] Building tektutor-helloworld-app 1.0.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ tektutor-helloworld-app ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /home/jegan/devops-jan-2022/Day1/hello/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ tektutor-helloworld-app ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ tektutor-helloworld-app ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /home/jegan/devops-jan-2022/Day1/hello/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ tektutor-helloworld-app ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to /home/jegan/devops-jan-2022/Day1/hello/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ tektutor-helloworld-app ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ tektutor-helloworld-app ---
+[INFO] Building jar: /home/jegan/devops-jan-2022/Day1/hello/target/tektutor-helloworld-app-1.0.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ tektutor-helloworld-app ---
+[INFO] Installing /home/jegan/devops-jan-2022/Day1/hello/target/tektutor-helloworld-app-1.0.0.jar to /home/jegan/.m2/repository/org/tektutor/tektutor-helloworld-app/1.0.0/tektutor-helloworld-app-1.0.0.jar
+[INFO] Installing /home/jegan/devops-jan-2022/Day1/hello/pom.xml to /home/jegan/.m2/repository/org/tektutor/tektutor-helloworld-app/1.0.0/tektutor-helloworld-app-1.0.0.pom
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.7:deploy (default-deploy) @ tektutor-helloworld-app ---
+Uploading to jfrog: http://localhost:8082/artifactory/tektutor/org/tektutor/tektutor-helloworld-app/1.0.0/tektutor-helloworld-app-1.0.0.jar
+Uploaded to jfrog: http://localhost:8082/artifactory/tektutor/org/tektutor/tektutor-helloworld-app/1.0.0/tektutor-helloworld-app-1.0.0.jar (2.3 kB at 4.5 kB/s)
+Uploading to jfrog: http://localhost:8082/artifactory/tektutor/org/tektutor/tektutor-helloworld-app/1.0.0/tektutor-helloworld-app-1.0.0.pom
+Uploaded to jfrog: http://localhost:8082/artifactory/tektutor/org/tektutor/tektutor-helloworld-app/1.0.0/tektutor-helloworld-app-1.0.0.pom (669 B at 5.4 kB/s)
+Downloading from jfrog: http://localhost:8082/artifactory/tektutor/org/tektutor/tektutor-helloworld-app/maven-metadata.xml
+Uploading to jfrog: http://localhost:8082/artifactory/tektutor/org/tektutor/tektutor-helloworld-app/maven-metadata.xml
+Uploaded to jfrog: http://localhost:8082/artifactory/tektutor/org/tektutor/tektutor-helloworld-app/maven-metadata.xml (315 B at 5.1 kB/s)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.309 s
+[INFO] Finished at: 2022-01-03T03:11:14-08:00
+[INFO] ------------------------------------------------------------------------
+</pre>
