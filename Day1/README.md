@@ -259,7 +259,7 @@ cd Day1/hello
 ```
 
 You need to update your pom.xml will with the highlighted section
-<pre>
+```
 <project>
 	<modelVersion>4.0.0</modelVersion>
 
@@ -282,11 +282,11 @@ You need to update your pom.xml will with the highlighted section
 		</plugins>
 	</build>
 
-	<b><distributionManagement>
+	<distributionManagement>
 		<repository>
 			<id>jfrog</id>
 			<url>http://localhost:8082/artifactory/tektutor/</url>
 		</repository>
-	</distributionManagement></b>
+	</distributionManagement>
 </project>
-</pre>
+```
