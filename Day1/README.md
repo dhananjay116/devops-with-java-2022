@@ -87,3 +87,12 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd
        x - represents major version
        y - represents minor version
        z - represents incremental version
+       
+### Compiling your first Maven based java application
+```
+cd ~
+cd /home/rps/devops-jan-2022
+git pull
+cd Day1/hello
+mvn compile
+```
