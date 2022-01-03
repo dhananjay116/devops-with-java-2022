@@ -73,6 +73,11 @@ export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
                 └── tektutor
                     └── AppTest.java
   </pre>
+  
+### Maven POM Schema
+```
+https://maven.apache.org/xsd/maven-4.0.0.xsd
+```
 ### Maven co-ordinates
 - 3 co-ordinates
 - they are
