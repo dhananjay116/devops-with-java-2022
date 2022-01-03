@@ -241,11 +241,11 @@ In the maven home directory, you need add the JFrog Artifactory login credential
 
 ```
 <servers>
-  <b><server>
+  <server>
       <id>jfrog</id>
       <username>admin</username>
       <password>Admin@123</password>
-  </server></b>
+  </server>
 </servers>
 ```
 In the above, the highlighed sections must be added under the servers tag.
