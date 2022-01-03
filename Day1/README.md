@@ -133,3 +133,13 @@ mvn help:describe -Dcmd=clean
 ```
 mvn help:describe -Dcmd=site
 ```
+
+### Creating a maven project in interactive fashion
+```
+mvn archetype:generate
+```
+
+### Creating a maven project in batch mode
+```
+mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=org.tektutor -DartifactId=tektutor-web-app -Dversion=1.0.0 -DinteractiveMode=false
+```
