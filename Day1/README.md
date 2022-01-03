@@ -233,3 +233,5 @@ Default Login credentials for JFrog Artifactory will be
 User - admin
 Password - password
 </pre>
+
+When prompts for password change, you may change to 'Admin@123' without quotes.
