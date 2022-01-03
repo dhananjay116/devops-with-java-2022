@@ -96,3 +96,8 @@ git pull
 cd Day1/hello
 mvn compile
 ```
+
+### Listing maven default life-cycle
+```
+mvn help:describe -Dcmd=compile
+```
