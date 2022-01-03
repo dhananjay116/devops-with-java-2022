@@ -49,6 +49,8 @@ export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 - however it can be used to build C#, C++, python, groovy, scala, any programming languages
 - i.e it is language agnostic
 - it is a open-source tool from Apache Foundatation
+- Maven uses a POM (Project Object Model) xml file to capture your project, its dependencies, etc.,
+
 
 ### Maven Convention over Configuration
 - even if you have to name your projects, it has to done in terms of
