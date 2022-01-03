@@ -181,6 +181,11 @@ mvn archetype:generate
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=org.tektutor -DartifactId=tektutor-web-app -Dversion=1.0.0 -DinteractiveMode=false
 ```
 
+### Removing existing containers
+```
+docker rm -f $(docker ps -aq)
+```
+
 ### Setting up JFrog Artifactory as a Docker container ( Do this as root user )
 ```
 su -
