@@ -112,3 +112,13 @@ mvn clean compile
 ```
 mvn help:describe -Dcmd=compile
 ```
+
+### Listing maven clean life-cycle
+```
+mvn help:describe -Dcmd=clean
+```
+
+### Listing maven site life-cycle
+```
+mvn help:describe -Dcmd=site
+```
