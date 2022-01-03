@@ -49,6 +49,8 @@ export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 - however it can be used to build C#, C++, python, groovy, scala, any programming languages
 - i.e it is language agnostic
 - it is a open-source tool from Apache Foundatation
+- Maven uses a POM (Project Object Model) xml file to capture your project, its dependencies, etc.,
+
 
 ### Maven Convention over Configuration
 - even if you have to name your projects, it has to done in terms of
@@ -95,4 +97,49 @@ cd /home/rps/devops-jan-2022
 git pull
 cd Day1/hello
 mvn compile
+```
+
+### Cleaning target folder
+```
+mvn clean
+```
+The above command will delete the target folder which has all your project binaries.
+
+### Performing a clean compile ( rebuild )
+```
+mvn clean compile
+```
+
+### Packaging your application as jar/war/ear,etc
+```
+cd ~
+cd devops-jan-2022
+git pull
+cd Day1/hello
+mvn package
+```
+
+### Listing maven default life-cycle
+```
+mvn help:describe -Dcmd=compile
+```
+
+### Listing maven clean life-cycle
+```
+mvn help:describe -Dcmd=clean
+```
+
+### Listing maven site life-cycle
+```
+mvn help:describe -Dcmd=site
+```
+
+### Creating a maven project in interactive fashion
+```
+mvn archetype:generate
+```
+
+### Creating a maven web aplication project in batch mode
+```
+mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=org.tektutor -DartifactId=tektutor-web-app -Dversion=1.0.0 -DinteractiveMode=false
 ```
