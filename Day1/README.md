@@ -235,3 +235,17 @@ Password - password
 </pre>
 
 When prompts for password change, you may change to 'Admin@123' without quotes.
+
+### Configuring settings.xml file
+In the maven home directory, you need add the JFrog Artifactory login credentials in the settings.xml file.
+
+```
+<servers>
+  <b><server>
+      <id>jfrog</id>
+      <username>admin</username>
+      <password>Admin@123</password>
+  </server></b>
+</servers>
+```
+In the above, the highlighed sections must be added under the servers tag.
