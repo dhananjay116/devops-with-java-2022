@@ -21,3 +21,25 @@ cd ~
 cd /home/rps/devops-jan-2022
 git pull
 ```
+
+### Installing JDK 11
+```
+su -
+yum install -y java-11-openjdk-devel
+javac -version
+```
+
+### Installing Maven
+```
+cd /home/rps/Downloads
+wget https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz
+tar xvfz apache-maven-3.8.4-bin.tar.gz
+```
+
+Append the JDK and Maven bath in the /home/rps/.bashrc file as shown below
+<pre>
+# User specific aliases and functions
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.13.0.8-4.el8_5.x86_64
+export M2_HOME=/home/rps/Downloads/apache-maven-3.8.4
+export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
+</pre>
