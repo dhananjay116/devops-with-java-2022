@@ -110,6 +110,15 @@ The above command will delete the target folder which has all your project binar
 mvn clean compile
 ```
 
+### Packaging your application as jar/war/ear,etc
+```
+cd ~
+cd devops-jan-2022
+git pull
+cd Day1/hello
+mvn package
+```
+
 ### Listing maven default life-cycle
 ```
 mvn help:describe -Dcmd=compile
