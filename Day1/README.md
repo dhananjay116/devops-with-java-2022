@@ -348,3 +348,10 @@ Uploaded to jfrog: http://localhost:8082/artifactory/tektutor/org/tektutor/tektu
 [INFO] Finished at: 2022-01-03T03:11:14-08:00
 [INFO] ------------------------------------------------------------------------
 </pre>
+
+## Installing build essential tools
+```
+su -
+yum groupinstall "Development Tools"
+
+```
