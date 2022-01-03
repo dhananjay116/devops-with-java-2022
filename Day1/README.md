@@ -222,3 +222,8 @@ The expected ouput is
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS          PORTS                                       NAMES
 653d4d7ffc8a   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   33 seconds ago   Up 31 seconds   0.0.0.0:8081->8081/tcp, :::8081->8081/tcp   artifactory
 </pre>
+
+If your artifactory container is running, you may access the Artifactory dashboard from web browser on the RPS lab machine.
+```
+http://localhost:8081
+```
