@@ -259,7 +259,7 @@ cd Day1/hello
 ```
 
 You need to update your pom.xml will with the highlighted section
-```
+<pre>
 <project>
 	<modelVersion>4.0.0</modelVersion>
 
@@ -289,4 +289,4 @@ You need to update your pom.xml will with the highlighted section
 		</repository>
 	</distributionManagement></b>
 </project>
-```
+</pre>
