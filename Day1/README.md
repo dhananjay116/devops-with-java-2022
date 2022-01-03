@@ -97,6 +97,17 @@ cd Day1/hello
 mvn compile
 ```
 
+### Cleaning target folder
+```
+mvn clean
+```
+The above command will delete the target folder which has all your project binaries.
+
+### Performing a clean compile ( rebuild )
+```
+mvn clean compile
+```
+
 ### Listing maven default life-cycle
 ```
 mvn help:describe -Dcmd=compile
