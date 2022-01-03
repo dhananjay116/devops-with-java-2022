@@ -181,7 +181,39 @@ mvn archetype:generate
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=org.tektutor -DartifactId=tektutor-web-app -Dversion=1.0.0 -DinteractiveMode=false
 ```
 
-### Setting up JFrog Artifactory as a Docker container
+### Setting up JFrog Artifactory as a Docker container ( Do this as root user )
 ```
+su -
 docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss:latest
 ```
+The expected output is
+<pre>
+[root@tektutor ~]# docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss:latest
+Unable to find image 'docker.bintray.io/jfrog/artifactory-oss:latest' locally
+latest: Pulling from jfrog/artifactory-oss
+4f4fb700ef54: Pull complete 
+f311cd70d478: Pull complete 
+b2da589d92d5: Pull complete 
+4fb7164329e5: Pull complete 
+7aa8827ab216: Pull complete 
+913096d3c8e9: Pull complete 
+d80e13affa43: Pull complete 
+df547a4d7a28: Pull complete 
+9e2b73f22d1d: Pull complete 
+ed8c56f5480d: Pull complete 
+Digest: sha256:818a555a78b331da16ef4ba528490a56ef6c27e9d0fc9e777039044f7195922b
+Status: Downloaded newer image for docker.bintray.io/jfrog/artifactory-oss:latest
+653d4d7ffc8a8a04dd6a5b7aebf3c6bdb457531f8179b635fdfc9d044f21b15b
+</pre>
+You may have to type 'rps@12345' as root password when it prompts.
+
+See if the artifactory is running
+```
+docker ps
+```
+The expected ouput is
+<pre>
+[root@tektutor ~]# docker ps
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+653d4d7ffc8a   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   33 seconds ago   Up 31 seconds   0.0.0.0:8081->8081/tcp, :::8081->8081/tcp   artifactory
+</pre>
