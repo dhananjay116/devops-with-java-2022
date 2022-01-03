@@ -184,7 +184,7 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=or
 ### Setting up JFrog Artifactory as a Docker container ( Do this as root user )
 ```
 su -
-docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss:latest
+docker run --name artifactory -d -p 8081-8082:8081-8082 docker.bintray.io/jfrog/artifactory-oss:latest
 ```
 The expected output is
 <pre>
