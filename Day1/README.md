@@ -249,3 +249,44 @@ In the maven home directory, you need add the JFrog Artifactory login credential
 </servers>
 ```
 In the above, the highlighed sections must be added under the servers tag.
+
+### Configuring POM file to deploy artifacts to JFrog Artifactory
+
+```
+cd /home/rps/devops-jan-2021
+git pull
+cd Day1/hello
+```
+
+You need to update your pom.xml will with the highlighted section
+```
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.tektutor</groupId>
+	<artifactId>tektutor-helloworld-app</artifactId>
+	<version>1.0.0</version>
+<!--
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+-->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<b><distributionManagement>
+		<repository>
+			<id>jfrog</id>
+			<url>http://localhost:8082/artifactory/tektutor/</url>
+		</repository>
+	</distributionManagement></b>
+</project>
+```
