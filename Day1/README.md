@@ -180,3 +180,8 @@ mvn archetype:generate
 ```
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=org.tektutor -DartifactId=tektutor-web-app -Dversion=1.0.0 -DinteractiveMode=false
 ```
+
+### Setting up JFrog Artifactory as a Docker container
+```
+docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss:latest
+```
