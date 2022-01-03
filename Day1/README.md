@@ -135,6 +135,15 @@ mvn package
   Super POM and merges with the POM file you wrote and creates an effective as in-memory file
 - super POM is the file, Maven refers while performing any build activity in your project
 
+### Creating an effective POM
+```
+cd ~
+cd devops-jan-2022
+git pull
+cd Day1/hello
+mvn help:effective-pom > eff.yml 2>&1
+```
+
 ### Maven Life Cycle
 - life cycle is a chain of commands called one after the other in a pre-defined sequence (top to bottom order)
 - Maven supports 3 inbuilt life-cycles
