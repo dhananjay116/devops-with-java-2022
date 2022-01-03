@@ -119,6 +119,38 @@ cd Day1/hello
 mvn package
 ```
 
+### Super POM (Project Object Model)
+- Super POM has all default Maven configurations
+- Its comes with Maven installation
+- It has information about life-cycle and plugins that needs to be invoked during specifice life-cycle phase
+- This Super POM is inherited by the POM file we define for our projects
+
+### User defined POM file
+- every project that we create will have atleast one POM file
+- in case of multi-module projects, you will find multiple POM files one per module
+- The POM file we write, automatically inherits the default properties from the Super POM
+
+### Effective POM
+- each time you run any maven command within a project folder, maven picks all the default properties from
+  Super POM and merges with the POM file you wrote and creates an effective as in-memory file
+- super POM is the file, Maven refers while performing any build activity in your project
+
+### Creating an effective POM
+```
+cd ~
+cd devops-jan-2022
+git pull
+cd Day1/hello
+mvn help:effective-pom > eff.yml 2>&1
+```
+
+### Maven Life Cycle
+- life cycle is a chain of commands called one after the other in a pre-defined sequence (top to bottom order)
+- Maven supports 3 inbuilt life-cycles
+   1. default ( 23 Phases )
+   2. clean ( 3 Phases )
+   3. site ( 4 Phases )
+
 ### Listing maven default life-cycle
 ```
 mvn help:describe -Dcmd=compile
@@ -132,6 +164,11 @@ mvn help:describe -Dcmd=clean
 ### Listing maven site life-cycle
 ```
 mvn help:describe -Dcmd=site
+```
+
+### Listing Plugin goals
+```
+mvn help:describe -Dplugin=org.apache.maven.plugins:maven-compiler-plugin:3.1 -Ddetail
 ```
 
 ### Creating a maven project in interactive fashion
