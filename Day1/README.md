@@ -134,6 +134,11 @@ mvn help:describe -Dcmd=clean
 mvn help:describe -Dcmd=site
 ```
 
+### Listing Plugin goals
+```
+mvn help:describe -Dplugin=org.apache.maven.plugins:maven-compiler-plugin:3.1 -Ddetail
+```
+
 ### Creating a maven project in interactive fashion
 ```
 mvn archetype:generate
