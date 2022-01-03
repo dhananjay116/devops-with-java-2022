@@ -258,7 +258,7 @@ git pull
 cd Day1/hello
 ```
 
-You need to update your pom.xml will with the highlighted section
+You need to update your pom.xml will distributionManagement section
 ```
 <project>
 	<modelVersion>4.0.0</modelVersion>
