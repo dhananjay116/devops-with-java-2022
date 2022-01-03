@@ -139,7 +139,7 @@ mvn help:describe -Dcmd=site
 mvn archetype:generate
 ```
 
-### Creating a maven project in batch mode
+### Creating a maven web aplication project in batch mode
 ```
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=org.tektutor -DartifactId=tektutor-web-app -Dversion=1.0.0 -DinteractiveMode=false
 ```
