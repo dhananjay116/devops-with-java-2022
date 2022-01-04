@@ -67,6 +67,15 @@
        - all the containers running in a system share the CPU, RAM and storage just like regular application process.
    - even in laptop with Dual cores with 8 GB RAM, you can easily run 50~100 containers
 
+### Docker Image
+- is a blueprint of Docker Container
+- similar to OS ISO images or VMWare Images
+- further broken down into one or more layers
+
+### Docker Container
+- is an instance of Docker Image
+-
+
 ### Listing Docker Images in the Local Docker Registry
 ```
 docker images
@@ -116,3 +125,25 @@ docker ps
 ```
 docker ps -a
 ```
+### Creating an ubuntu container
+```
+docker run -it --name ubuntu1 --hostname ubuntu1 ubuntu:20.04 /bin/bash
+```
+The expected output is
+<pre>
+[jegan@tektutor ~]$ <b>docker run -it --name ubuntu1 --hostname ubuntu1 ubuntu:20.04 /bin/bash</b>
+Unable to find image 'ubuntu:20.04' locally
+20.04: Pulling from library/ubuntu
+7b1a6ab2e44d: Pull complete 
+Digest: sha256:626ffe58f6e7566e00254b638eb7e0f3b11d4da9675088f4781a50ae288f3322
+Status: Downloaded newer image for ubuntu:20.04
+root@ubuntu1:/# ls
+bin   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var
+boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
+root@ubuntu1:/# hostname
+ubuntu1
+root@ubuntu1:/# hostname -i
+172.17.0.3
+root@ubuntu1:/# exit
+exit
+</pre>
