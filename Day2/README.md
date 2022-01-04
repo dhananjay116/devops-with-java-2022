@@ -290,7 +290,7 @@ echo "Server 3" > index.html
 docker cp index.html web3:/usr/share/nginx/html/index.html
 ```
 
-Let's create a load balance container
+Let's create a load balancer container
 ```
 docker run -d --name lb --hostname lb nginx:1.20
 ```
