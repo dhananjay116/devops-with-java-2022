@@ -125,7 +125,7 @@ docker ps
 ```
 docker ps -a
 ```
-### Creating an ubuntu container
+### Creating an ubuntu container in interactive fashion
 ```
 docker run -it --name ubuntu1 --hostname ubuntu1 ubuntu:20.04 /bin/bash
 ```
@@ -147,3 +147,8 @@ root@ubuntu1:/# hostname -i
 root@ubuntu1:/# exit
 exit
 </pre>
+
+From another terminal, you may list the container
+```
+docker ps
+```
