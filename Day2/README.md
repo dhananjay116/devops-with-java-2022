@@ -328,7 +328,7 @@ http {
 
 You may check and update the 172.17.0.2, 172.17.0.3 and 172.17.0.4 IP addresses with your nginx web1, web2 and web3 container IPs.
 
-Now we need to copy the update nginx.conf back into the lb container
+Now we need to copy the updated nginx.conf back into the lb container
 ```
 docker cp nginx.conf lb:/etc/nginx/nginx.conf
 ```
