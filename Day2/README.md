@@ -67,6 +67,18 @@
        - all the containers running in a system share the CPU, RAM and storage just like regular application process.
    - even in laptop with Dual cores with 8 GB RAM, you can easily run 50~100 containers
 
+### Container Orchestration Platform
+- You can deploy your applications in a cluster and make it Highly Available(HA)
+- Orchestration platforms manages containers
+- You can scale up when there is more traffice for your microservice/application
+- You can scaled down when the traffice to your website comes down
+- You can do rolling update ( upgrading your appliction from one version to other without downtime )
+- You can monitor health of your applications and replace with another instance in case your application stops responding
+- Examples:
+   Docker SWARM ( Docker's native orchestration platform that supports only Docker container Runtime )
+   Google Kubernetes ( supports many types of Containers Runtimes including Docker, Podman, LXC, etc.,)
+   IBM OpenShift ( supports Podman container Runtime )
+
 ### Installing Docker Community Edition in CentOS
 ```
 su -
