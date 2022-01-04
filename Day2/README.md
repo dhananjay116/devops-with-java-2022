@@ -255,4 +255,18 @@ docker stop $(docker ps -q)
 docker rm $(docker ps -aq)
 ```
 
+### Let's create a single container
+```
+docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:20.04 /bin/bash
+```
+List the running contianers
+```
+docker ps
+```
 
+### Renaming a container
+```
+docker ps
+docker rename ubuntu1 c1
+docker ps
+```
