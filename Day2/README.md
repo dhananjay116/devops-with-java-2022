@@ -66,3 +66,28 @@
    - light-weight technolgy
        - all the containers running in a system share the CPU, RAM and storage just like regular application process.
    - even in laptop with Dual cores with 8 GB RAM, you can easily run 50~100 containers
+
+### Listing Docker Images in the Local Docker Registry
+```
+docker images
+```
+
+### Downloading a docker image from Docker Hub(Remote Registry) to Local Docker Registry
+```
+docker pull hello-world:latest
+```
+
+### Creating a container
+```
+docker run hello-world:latest
+```
+
+### Listing the running containers
+```
+docker ps
+```
+
+### Listing all containers
+```
+docker ps -a
+```
