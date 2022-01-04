@@ -281,13 +281,13 @@ docker run -d --name web3 --hostname web3 nginx:1.20
 Let's update the index.html pages on web1, web2 and web3 as shown below
 ```
 echo "Server 1" > index.html
-docker cp index.html web1://usr/share/nginx/html/index.html
+docker cp index.html web1:/usr/share/nginx/html/index.html
 
 echo "Server 2" > index.html
-docker cp index.html web2://usr/share/nginx/html/index.html
+docker cp index.html web2:/usr/share/nginx/html/index.html
 
 echo "Server 3" > index.html
-docker cp index.html web3://usr/share/nginx/html/index.html
+docker cp index.html web3:/usr/share/nginx/html/index.html
 ```
 
 Let's create a load balance container
