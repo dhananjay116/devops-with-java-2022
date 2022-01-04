@@ -187,3 +187,8 @@ You may also try this command
 ```
 docker inspect -f {{.NetworkSettings.IPAddress}} ubuntu2
 ```
+The expected output is
+<pre>
+[jegan@tektutor ~]$ <b>docker inspect -f {{.NetworkSettings.IPAddress}} ubuntu2</b>
+172.17.0.3
+</pre>
