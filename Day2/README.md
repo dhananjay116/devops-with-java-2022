@@ -217,3 +217,42 @@ The expected output is
 [jegan@tektutor ~]$ <b>docker inspect -f {{.NetworkSettings.IPAddress}} ubuntu2</b>
 172.17.0.3
 </pre>
+
+### Let's remove all containers
+```
+docker rm -f $(docker ps -aq)
+```
+
+### Let's create 3 containers
+```
+docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:20.04 /bin/bash
+docker run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:20.04 /bin/bash
+docker run -dit --name ubuntu3 --hostname ubuntu3 ubuntu:20.04 /bin/bash
+```
+List the running containers
+```
+docker ps
+```
+
+### Stopping a single running container
+```
+docker stop ubuntu1
+```
+
+### Stopping multiple running containers
+```
+docker stop ubuntu2 ubuntu3
+```
+
+### Starting multiple containers
+```
+docker start ubuntu1 ubuntu2 ubuntu3
+```
+
+### Stopping multiple running containers without calling out their names
+```
+docker stop $(docker ps -q)
+docker rm $(docker ps -aq)
+```
+
+
