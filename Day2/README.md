@@ -67,6 +67,15 @@
        - all the containers running in a system share the CPU, RAM and storage just like regular application process.
    - even in laptop with Dual cores with 8 GB RAM, you can easily run 50~100 containers
 
+### Installing Docker Community Edition in CentOS
+```
+su -
+yum install -y yum-utils
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum install -y docker-ce
+systemctl enable docker && systemctl start docker
+```
+
 ### Docker Image
 - is a blueprint of Docker Container
 - similar to OS ISO images or VMWare Images
