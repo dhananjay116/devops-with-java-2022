@@ -292,7 +292,7 @@ docker cp index.html web3:/usr/share/nginx/html/index.html
 
 Let's create a load balancer container
 ```
-docker run -d --name lb --hostname lb nginx:1.20
+docker run -d --name lb --hostname lb -p 80:80 nginx:1.20
 ```
 
 Now copy the nginx.conf from lb container to local machine
