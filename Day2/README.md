@@ -270,3 +270,79 @@ docker ps
 docker rename ubuntu1 c1
 docker ps
 ```
+
+### Port Forwarding
+Let's create 3 nginx web server containers as shown below
+```
+docker run -d --name web1 --hostname web1 nginx:1.20
+docker run -d --name web2 --hostname web2 nginx:1.20
+docker run -d --name web3 --hostname web3 nginx:1.20
+```
+Let's update the index.html pages on web1, web2 and web3 as shown below
+```
+echo "Server 1" > index.html
+docker cp index.html web1://usr/share/nginx/html/index.html
+
+echo "Server 2" > index.html
+docker cp index.html web2://usr/share/nginx/html/index.html
+
+echo "Server 3" > index.html
+docker cp index.html web3://usr/share/nginx/html/index.html
+```
+
+Let's create a load balance container
+```
+docker run -d --name lb --hostname lb nginx:1.20
+```
+
+Now copy the nginx.conf from lb container to local machine
+```
+docker cp lb:/etc/nginx/nginx.conf .
+```
+This nginx.conf file needs to updated as shown below from your RPS lab machine
+<pre>
+user  nginx;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    upstream backend {
+        server 172.17.0.2;
+        server 172.17.0.3;
+        server 172.17.0.4;
+    }
+    
+    server {
+        location / {
+            proxy_pass http://backend;
+        }
+    }
+}
+</pre>
+
+You may check and update the 172.17.0.2, 172.17.0.3 and 172.17.0.4 IP addresses with your nginx web1, web2 and web3 container IPs.
+
+Now we need to copy the update nginx.conf back into the lb container
+```
+docker cp nginx.conf lb:/etc/nginx/nginx.conf
+```
+In order to apply the config changes, we need to reboot lb container
+```
+docker restart lb
+```
+You can see if you are able to see the responses arriving in round robin fashion
+```
+curl http://<your-rps-lab-machine-ip>:80
+```
+The expected output is
+<pre>
+Server 1
+Server 2
+Server 3
+</pre>
