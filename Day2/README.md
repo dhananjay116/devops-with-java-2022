@@ -172,3 +172,18 @@ boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
 root@ubuntu2:/# exit
 exit
 </pre>
+
+### Getting inside a running container
+```
+docker exec -it ubuntu2 /bin/bash
+```
+
+### Finding IP address of a container
+```
+docker inspect ubuntu2 | grep IPA
+```
+
+You may also try this command
+```
+docker inspect -f {{.NetworkSettings.IPAddress}} ubuntu2
+```
