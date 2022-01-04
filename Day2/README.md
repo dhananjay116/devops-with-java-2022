@@ -182,6 +182,10 @@ docker exec -it ubuntu2 /bin/bash
 ```
 docker inspect ubuntu2 | grep IPA
 ```
+<pre>
+[jegan@tektutor ~]$ <b>docker inspect ubuntu2 | grep IPA</b>
+172.17.0.3
+</pre>
 
 You may also try this command
 ```
