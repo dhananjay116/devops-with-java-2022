@@ -152,3 +152,23 @@ From another terminal, you may list the container
 ```
 docker ps
 ```
+
+### Creating an ubuntu container in background(daemon mode) fashion
+```
+docker run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:20.04 /bin/bash
+```
+The expected output is
+<pre>
+jegan@tektutor ~]$ <b>docker run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:20.04 /bin/bash</b>
+6fffa01cdb8547eb2da3156dc97336c12112547735787039a0bbc67a9e4bbb0a
+[jegan@tektutor ~]$ docker ps
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS         PORTS                                                           NAMES
+6fffa01cdb85   ubuntu:20.04                                     "/bin/bash"              6 seconds ago   Up 5 seconds                                                                   ubuntu2
+13e24f957b59   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   23 hours ago    Up 3 hours     0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+[jegan@tektutor ~]$ docker exec -it ubuntu2 /bin/bash
+root@ubuntu2:/# ls
+bin   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var
+boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
+root@ubuntu2:/# exit
+exit
+</pre>
