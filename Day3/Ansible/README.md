@@ -1,6 +1,20 @@
 # What is DevOps?
   - a way of project development where developers, qa and operations team attempts
     to automate whatever service they offer
+  - it involves following certain process and tools to ensure you are able to frequently deliver release with confidence.
+  - Process involved
+      - Continuous Integration
+      - Continuous Deployment
+      - Continuous Delivery
+  - Tools involved
+      - Jenkins/Cloudbees, TeamCity, Bamboo, Microsoft Team Foundation Server (TFS), etc.,
+      - Docker( or similar container runtimes ), Virtual Machines, VM Management Tools (vagrant),
+      - Configuration Management Tools ( Ansible, Puppet, Chef, SaltStack )
+      - Orchestration Tools ( Docker SWARM, Kubernetes, OpenShift, Rancher, etc., )
+      - Cloud computing ( AWS, Azure, GCP, Digital Ocean, etc., )
+      - Version Control ( Git/GitHub, Bit Bucket, Perforce, ClearCase, etc., )
+      - Build Tools ( Ant, Maven, Make, Gradle NPM, etc., )
+      
   - Developers
       - primary work involves application development
       - as part of application development, they also do unit testing and integration testing mostly manually
@@ -77,7 +91,14 @@ hello-world                               latest    feb5d9fea6a5   3 months ago 
 ubuntu                                    16.04     b6f507652425   4 months ago    135MB
 </pre>
 
-### Let's create couple of containers which will use as ansible nodes
+
+### Let's clean up by deleting all existing containers
+```
+docker rm -f $(docker ps -aq)
+```
+Though this is not necessary, but some containers may conflict with what we are about to do below.
+
+### Let's create couple of containers which we will later use as ansible nodes
 ```
 docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ansible-ubuntu 
 docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu 
@@ -155,4 +176,33 @@ applicable law.
 root@ubuntu2:~# <b>exit</b>
 logout
 Connection to localhost closed.
+</pre>
+
+### Ansible ad-hoc command
+
+#### Ansible ping to check if ansible can connect to ansible nodes
+```
+cd /home/rps/devops-jan-2022
+git pull
+cd Day3/Ansible
+ansible -i inventory all -m ping
+```
+
+The expected output is
+<pre>
+[jegan@tektutor Ansible]$ <b>ansible -i inventory all -m ping</b>
+ubuntu2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
 </pre>
