@@ -91,6 +91,13 @@ hello-world                               latest    feb5d9fea6a5   3 months ago 
 ubuntu                                    16.04     b6f507652425   4 months ago    135MB
 </pre>
 
+
+### Let's clean up by deleting all existing containers
+```
+docker rm -f $(docker ps -aq)
+```
+Though this is not necessary, but some containers may conflict with what we are about to do below.
+
 ### Let's create couple of containers which we will later use as ansible nodes
 ```
 docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ansible-ubuntu 
