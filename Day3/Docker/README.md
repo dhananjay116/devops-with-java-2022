@@ -16,7 +16,7 @@ mysql -u root -p
 ```
 When prompts for password, type 'root' without quotes.
 
-At this point, you would be connect to mysql prompt
+At this point, you would be connected to mysql prompt
 ```
 SHOW DATABASES;
 CREATE DATABASE tektutor;
