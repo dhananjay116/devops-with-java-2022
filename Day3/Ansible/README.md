@@ -179,6 +179,8 @@ Connection to localhost closed.
 </pre>
 
 ### Ansible ad-hoc command
+
+#### Ansible ping to check if ansible can connect to ansible nodes
 ```
 cd /home/rps/devops-jan-2022
 git pull
