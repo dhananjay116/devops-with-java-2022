@@ -35,3 +35,33 @@
 ## Configuration Management Tools
   - examples - Ansible, Puppet, Chef and Salt/SaltStack 
 
+### Ansible Node
+ - this is the server where software installation automation must be done
+ - these servers could be a container, virtual machine on-prem, cloud based machines, physical machines, routers, switches, etc.,
+ - Unix/Linux Node
+     - python should be installed
+     - SSH server should be installed
+     - should have the public key of Ansible Controller Machine for key-based login authentication( but not mandatory)
+ - Windows Node
+    - Powershell (.Net)
+    - WinRM enabled and configured
+
+### As rps user, create ssh key-pairs
+```
+ssh-keygen
+```
+Accept all defaults by hitting enter key 3 (thrice)
+
+### Creating a custom docker image to use it as a Ansible Node
+```
+cd /home/rps/devops-jan-2022
+git pull
+cd Day3/Ansible/ubuntu-ansible
+cp /home/rps/.ssh/id_rsa.pub authorized_keys
+docker build -t tektutor/ansible-ubuntu .
+```
+
+At this point you will have a tektutor/ansible-ubuntu custom image built in your local docker registry.
+```
+docker images
+```
