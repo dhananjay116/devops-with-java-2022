@@ -67,7 +67,7 @@ docker images
 ```
 The expected output is
 <pre>
-[jegan@tektutor ubuntu-ansible]$ docker images
+[jegan@tektutor ubuntu-ansible]$ <b>docker images</b>
 REPOSITORY                                TAG       IMAGE ID       CREATED         SIZE
 <b>tektutor/ansible-ubuntu                   latest    fd618dc5cb86   7 minutes ago   220MB</b>
 mysql                                     latest    3218b38490ce   2 weeks ago     516MB
@@ -88,7 +88,7 @@ The expected output is
 9a89b26ac9d4efddb094db318605b555cb4137c010e4b9e82a46ecfac52230ef
 [jegan@tektutor ubuntu-ansible]$ <b>docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu</b>
 7b38796b00ad34a1aed794a6a0a87526830f961d1c27519382ab70fc94ea22d0
-[jegan@tektutor ubuntu-ansible]$ docker ps
+[jegan@tektutor ubuntu-ansible]$ <b>docker ps</b>
 CONTAINER ID   IMAGE                     COMMAND                  CREATED          STATUS          PORTS                                                                          NAMES
 <b>7b38796b00ad   tektutor/ansible-ubuntu   "/usr/sbin/sshd -D"      4 seconds ago    Up 3 seconds    0.0.0.0:2002->22/tcp, :::2002->22/tcp, 0.0.0.0:8002->80/tcp, :::8002->80/tcp   ubuntu2
 9a89b26ac9d4   tektutor/ansible-ubuntu   "/usr/sbin/sshd -D"      30 seconds ago   Up 28 seconds   0.0.0.0:2001->22/tcp, :::2001->22/tcp, 0.0.0.0:8001->80/tcp, :::8001->80/tcp   ubuntu1</b>
@@ -105,7 +105,7 @@ ssh -p 2001 root@localhost
 ```
 The expected output is
 <pre>
-[jegan@tektutor ubuntu-ansible]$ ssh -p 2001 root@localhost
+[jegan@tektutor ubuntu-ansible]$ <b>ssh -p 2001 root@localhost</b>
 The authenticity of host '[localhost]:2001 ([::1]:2001)' can't be established.
 ECDSA key fingerprint is SHA256:PGuuzt8OaJtk7QpeMep2OILWQ7bjtbcRjbxfSfa/yIs.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
@@ -123,7 +123,7 @@ individual files in /usr/share/doc/*/copyright.
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-root@ubuntu1:~# exit
+root@ubuntu1:~# <b>exit</b>
 logout
 Connection to localhost closed.
 </pre>
@@ -134,7 +134,7 @@ ssh -p 2002 root@localhost
 ```
 The expected outupt is
 <pre>
-[jegan@tektutor ubuntu-ansible]$ ssh -p 2002 root@localhost
+[jegan@tektutor ubuntu-ansible]$ <b>ssh -p 2002 root@localhost</b>
 The authenticity of host '[localhost]:2002 ([::1]:2002)' can't be established.
 ECDSA key fingerprint is SHA256:PGuuzt8OaJtk7QpeMep2OILWQ7bjtbcRjbxfSfa/yIs.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
@@ -152,7 +152,7 @@ individual files in /usr/share/doc/*/copyright.
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-root@ubuntu2:~# exit
+root@ubuntu2:~# <b>exit</b>
 logout
 Connection to localhost closed.
 </pre>
