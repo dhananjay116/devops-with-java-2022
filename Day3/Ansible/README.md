@@ -221,7 +221,7 @@ ubuntu1 | SUCCESS => {
 cd /home/rps/devops-jan-2022
 git pull
 cd Day3/Ansible/playbooks
-ansible -i inventory ping.yml
+ansible-playbook -i inventory ping.yml
 ```
 The expected output is
 <pre>
