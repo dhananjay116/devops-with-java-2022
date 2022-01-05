@@ -1,5 +1,6 @@
 - name: This playbook will demonstrate how to invoke ping ansible module
   hosts: all
+  gather_facts: no
   tasks:
     - name: Ping the ansible node
       ping:
