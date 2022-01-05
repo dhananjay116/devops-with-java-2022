@@ -215,3 +215,32 @@ ubuntu1 | SUCCESS => {
 5. Ansible then exectues the ping.py script on the remote node
 6. Captures all the responses(ie output), cleans up the temp folder on the ansible node
 7. Gives a summary of output in the Ansible Controller Machine
+
+### Running your first ansible playbook
+```
+cd /home/rps/devops-jan-2022
+git pull
+cd Day3/Ansible/playbooks
+ansible -i inventory ping.yml
+```
+The expected output is
+<pre>
+[jegan@tektutor playbooks]$ <b>ansible-playbook -i inventory ping.yml</b> 
+
+PLAY [This playbook will demonstrate how to invoke ping ansible module] ************
+
+TASK [Gathering Facts] *************************************************************
+ok: [ubuntu1]
+ok: [ubuntu2]
+ok: [centos1]
+
+TASK [Ping the ansible node] *******************************************************
+ok: [ubuntu2]
+ok: [ubuntu1]
+ok: [centos1]
+
+PLAY RECAP *************************************************************************
+centos1                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ubuntu1                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+</pre>
