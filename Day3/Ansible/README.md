@@ -65,3 +65,14 @@ At this point you will have a tektutor/ansible-ubuntu custom image built in your
 ```
 docker images
 ```
+The expected output is
+<pre>
+[jegan@tektutor ubuntu-ansible]$ docker images
+REPOSITORY                                TAG       IMAGE ID       CREATED         SIZE
+<b>tektutor/ansible-ubuntu                   latest    fd618dc5cb86   7 minutes ago   220MB</b>
+mysql                                     latest    3218b38490ce   2 weeks ago     516MB
+docker.bintray.io/jfrog/artifactory-oss   latest    7d5bc86bd887   3 weeks ago     991MB
+ubuntu                                    20.04     ba6acccedd29   2 months ago    72.8MB
+hello-world                               latest    feb5d9fea6a5   3 months ago    13.3kB
+ubuntu                                    16.04     b6f507652425   4 months ago    135MB
+</pre>
