@@ -177,3 +177,30 @@ root@ubuntu2:~# <b>exit</b>
 logout
 Connection to localhost closed.
 </pre>
+
+### Ansible ad-hoc command
+```
+cd /home/rps/devops-jan-2022
+git pull
+cd Day3/Ansible
+ansible -i inventory all -m ping
+```
+
+The expected output is
+<pre>
+[jegan@tektutor Ansible]$ <b>ansible -i inventory all -m ping</b>
+ubuntu2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+</pre>
