@@ -77,7 +77,7 @@ hello-world                               latest    feb5d9fea6a5   3 months ago 
 ubuntu                                    16.04     b6f507652425   4 months ago    135MB
 </pre>
 
-### Let's create couple of containers which will use as ansible nodes
+### Let's create couple of containers which we will later use as ansible nodes
 ```
 docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ansible-ubuntu 
 docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu 
