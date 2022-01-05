@@ -244,3 +244,29 @@ centos1                    : ok=2    changed=0    unreachable=0    failed=0    s
 ubuntu1                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 </pre>
+
+### Executing install nginx playbook
+```
+cd /home/rps/devops-jan-2022
+git pull
+cd Day3/ansible/playbooks
+ansible-playbook install-nginx-playbook.yml
+```
+The expected output is
+<pre>
+[jegan@tektutor playbooks]$ <b>ansible-playbook install-nginx-playbook.yml</b>
+
+PLAY [This playbook will install, configure and deploys custom web page into nginx web server] **********
+
+TASK [Gathering Facts] **********************************************************************************
+ok: [ubuntu1]
+ok: [ubuntu2]
+
+TASK [Install nginx in Ubuntu] **************************************************************************
+[WARNING]: Updating cache and auto-installing missing dependency: python3-apt
+changed: [ubuntu1]
+changed: [ubuntu2]
+
+PLAY RECAP **********************************************************************************************
+ubuntu1                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ubuntu2                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   </pre>
