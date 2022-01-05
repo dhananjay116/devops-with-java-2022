@@ -35,3 +35,124 @@
 ## Configuration Management Tools
   - examples - Ansible, Puppet, Chef and Salt/SaltStack 
 
+### Ansible Node
+ - this is the server where software installation automation must be done
+ - these servers could be a container, virtual machine on-prem, cloud based machines, physical machines, routers, switches, etc.,
+ - Unix/Linux Node
+     - python should be installed
+     - SSH server should be installed
+     - should have the public key of Ansible Controller Machine for key-based login authentication( but not mandatory)
+ - Windows Node
+    - Powershell (.Net)
+    - WinRM enabled and configured
+
+### As rps user, create ssh key-pairs
+```
+ssh-keygen
+```
+Accept all defaults by hitting enter key 3 (thrice)
+
+### Creating a custom docker image to use it as a Ansible Node
+```
+cd /home/rps/devops-jan-2022
+git pull
+cd Day3/Ansible/ubuntu-ansible
+cp /home/rps/.ssh/id_rsa.pub authorized_keys
+docker build -t tektutor/ansible-ubuntu .
+```
+
+At this point you will have a tektutor/ansible-ubuntu custom image built in your local docker registry.
+```
+docker images
+```
+The expected output is
+<pre>
+[jegan@tektutor ubuntu-ansible]$ <b>docker images</b>
+REPOSITORY                                TAG       IMAGE ID       CREATED         SIZE
+<b>tektutor/ansible-ubuntu                   latest    fd618dc5cb86   7 minutes ago   220MB</b>
+mysql                                     latest    3218b38490ce   2 weeks ago     516MB
+docker.bintray.io/jfrog/artifactory-oss   latest    7d5bc86bd887   3 weeks ago     991MB
+ubuntu                                    20.04     ba6acccedd29   2 months ago    72.8MB
+hello-world                               latest    feb5d9fea6a5   3 months ago    13.3kB
+ubuntu                                    16.04     b6f507652425   4 months ago    135MB
+</pre>
+
+### Let's create couple of containers which will use as ansible nodes
+```
+docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ansible-ubuntu 
+docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu 
+```
+The expected output is
+<pre>
+[jegan@tektutor ubuntu-ansible]$ <b>docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ansible-ubuntu</b>
+9a89b26ac9d4efddb094db318605b555cb4137c010e4b9e82a46ecfac52230ef
+[jegan@tektutor ubuntu-ansible]$ <b>docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ansible-ubuntu</b>
+7b38796b00ad34a1aed794a6a0a87526830f961d1c27519382ab70fc94ea22d0
+[jegan@tektutor ubuntu-ansible]$ <b>docker ps</b>
+CONTAINER ID   IMAGE                     COMMAND                  CREATED          STATUS          PORTS                                                                          NAMES
+<b>7b38796b00ad   tektutor/ansible-ubuntu   "/usr/sbin/sshd -D"      4 seconds ago    Up 3 seconds    0.0.0.0:2002->22/tcp, :::2002->22/tcp, 0.0.0.0:8002->80/tcp, :::8002->80/tcp   ubuntu2
+9a89b26ac9d4   tektutor/ansible-ubuntu   "/usr/sbin/sshd -D"      30 seconds ago   Up 28 seconds   0.0.0.0:2001->22/tcp, :::2001->22/tcp, 0.0.0.0:8001->80/tcp, :::8001->80/tcp   ubuntu1</b>
+0937340d8b5b   mysql:latest              "docker-entrypoint.s…"   3 hours ago      Up 3 hours      3306/tcp, 33060/tcp                                                            db
+</pre>
+
+Let's us check if ubuntu1 and ubuntu2 containers are running
+```
+docker ps
+```
+Let's us test if we are able to SSH into these ansible nodes(servers)
+```
+ssh -p 2001 root@localhost
+```
+The expected output is
+<pre>
+[jegan@tektutor ubuntu-ansible]$ <b>ssh -p 2001 root@localhost</b>
+The authenticity of host '[localhost]:2001 ([::1]:2001)' can't be established.
+ECDSA key fingerprint is SHA256:PGuuzt8OaJtk7QpeMep2OILWQ7bjtbcRjbxfSfa/yIs.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[localhost]:2001' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.18.0-348.el8.x86_64 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@ubuntu1:~# <b>exit</b>
+logout
+Connection to localhost closed.
+</pre>
+
+Let's repeat the SSH connection test to our other ansible node
+```
+ssh -p 2002 root@localhost
+```
+The expected outupt is
+<pre>
+[jegan@tektutor ubuntu-ansible]$ <b>ssh -p 2002 root@localhost</b>
+The authenticity of host '[localhost]:2002 ([::1]:2002)' can't be established.
+ECDSA key fingerprint is SHA256:PGuuzt8OaJtk7QpeMep2OILWQ7bjtbcRjbxfSfa/yIs.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[localhost]:2002' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.18.0-348.el8.x86_64 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@ubuntu2:~# <b>exit</b>
+logout
+Connection to localhost closed.
+</pre>
