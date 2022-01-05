@@ -206,3 +206,12 @@ ubuntu1 | SUCCESS => {
     "ping": "pong"
 }
 </pre>
+
+### What happens when you run ansible ping?
+1. Ansible creates a temp directory in ACM and temp directory in Ansible Node
+2. Ansible copies the ping.py from ACM Ansible Module folder and puts it in the ACM tmp folder
+3. Ansible then transpiles i.e bundles all ansible specific code in the ping.py and creates a ping.py file in the ACM temp folder
+4. Using either sftp or scp it then copies the transpiled ping.py to the Ansible Node temp folder
+5. Ansible then exectues the ping.py script on the remote node
+6. Captures all the responses(ie output), cleans up the temp folder on the ansible node
+7. Gives a summary of output in the Ansible Controller Machine
