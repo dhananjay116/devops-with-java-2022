@@ -1,6 +1,20 @@
 # What is DevOps?
   - a way of project development where developers, qa and operations team attempts
     to automate whatever service they offer
+  - it involves following certain process and tools to ensure you are able to frequently deliver release with confidence.
+  - Process involved
+      - Continuous Integration
+      - Continuous Deployment
+      - Continuous Delivery
+  - Tools involved
+      - Jenkins/Cloudbees, TeamCity, Bamboo, Microsoft Team Foundation Server (TFS), etc.,
+      - Docker( or similar container runtimes ), Virtual Machines, VM Management Tools (vagrant),
+      - Configuration Management Tools ( Ansible, Puppet, Chef, SaltStack )
+      - Orchestration Tools ( Docker SWARM, Kubernetes, OpenShift, Rancher, etc., )
+      - Cloud computing ( AWS, Azure, GCP, Digital Ocean, etc., )
+      - Version Control ( Git/GitHub, Bit Bucket, Perforce, ClearCase, etc., )
+      - Build Tools ( Ant, Maven, Make, Gradle NPM, etc., )
+      
   - Developers
       - primary work involves application development
       - as part of application development, they also do unit testing and integration testing mostly manually
