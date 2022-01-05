@@ -256,17 +256,80 @@ The expected output is
 <pre>
 [jegan@tektutor playbooks]$ <b>ansible-playbook install-nginx-playbook.yml</b>
 
-PLAY [This playbook will install, configure and deploys custom web page into nginx web server] **********
+PLAY [This playbook will install, configure and deploys custom web page into nginx web server] ******
 
-TASK [Gathering Facts] **********************************************************************************
+TASK [Gathering Facts] ******************************************************************************
+ok: [ubuntu2]
+ok: [ubuntu1]
+
+TASK [Install nginx in Ubuntu] **********************************************************************
 ok: [ubuntu1]
 ok: [ubuntu2]
 
-TASK [Install nginx in Ubuntu] **************************************************************************
-[WARNING]: Updating cache and auto-installing missing dependency: python3-apt
+TASK [Start the nginx web server in Ubuntu] *********************************************************
+[WARNING]: Consider using the service module rather than running 'service'.  If you need to use
+command because service is insufficient you can add 'warn: false' to this command task or set
+'command_warnings=False' in ansible.cfg to get rid of this message.
+changed: [ubuntu2]
+changed: [ubuntu1]
+
+TASK [Create the custom web root folder] ************************************************************
+ok: [ubuntu1]
+ok: [ubuntu2]
+
+TASK [Configure nginx web root folder in Ubuntu] ****************************************************
+ok: [ubuntu1]
+ok: [ubuntu2]
+
+TASK [Restart nginx web server to apply config changes] *********************************************
 changed: [ubuntu1]
 changed: [ubuntu2]
 
-PLAY RECAP **********************************************************************************************
-ubuntu1                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-ubuntu2                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   </pre>
+TASK [Retrieve IP Address] **************************************************************************
+changed: [ubuntu1]
+changed: [ubuntu2]
+
+TASK [debug] ****************************************************************************************
+ok: [ubuntu1] => {
+    "ipaddress": {
+        "changed": true,
+        "cmd": "hostname -i",
+        "delta": "0:00:00.004714",
+        "end": "2022-01-05 12:20:17.204609",
+        "failed": false,
+        "rc": 0,
+        "start": "2022-01-05 12:20:17.199895",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "172.17.0.3",
+        "stdout_lines": [
+            "172.17.0.3"
+        ]
+    }
+}
+ok: [ubuntu2] => {
+    "ipaddress": {
+        "changed": true,
+        "cmd": "hostname -i",
+        "delta": "0:00:00.006468",
+        "end": "2022-01-05 12:20:17.243248",
+        "failed": false,
+        "rc": 0,
+        "start": "2022-01-05 12:20:17.236780",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "172.17.0.4",
+        "stdout_lines": [
+            "172.17.0.4"
+        ]
+    }
+}
+
+TASK [Deploy custom web page into nginx server] *****************************************************
+changed: [ubuntu2]
+changed: [ubuntu1]
+
+PLAY RECAP ******************************************************************************************
+ubuntu1                    : ok=9    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ubuntu2                    : ok=9    changed=4    unreachable=0    failed=0    skipped=0    rescued=0</pre>
+</pre>
