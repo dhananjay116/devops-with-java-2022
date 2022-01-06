@@ -128,4 +128,11 @@ java -jar ./jenkins.war
 
 You may access Jenkins Dashboard from browser at http://localhost:8080
 
+We need to install some additional plugins, click on Manage Jenkins --> Manage Plugins --> Available Tab
+Seach and Select the below plugins
+1. Maven Integration
+2. Docker
+3. Ansible
+4. Ansible Tower
+
 
