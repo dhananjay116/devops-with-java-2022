@@ -1,0 +1,4 @@
+- name: This playbook will demonstrate passing arguments to your playbook
+  hosts: localhost
+  tasks:
+    - debug: msg="message --> {{message}}; jdk_path --> {{jdk_path}}; maven home --> {{m2_home}} "
