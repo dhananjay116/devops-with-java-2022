@@ -1,0 +1,24 @@
+- name: This playbook will demonstrate the use of service module
+  hosts: centos
+  become: yes
+  tasks:
+    - name: Configure nginx port to 8085
+      copy: src=nginx.conf dest=/etc/nginx/nginx.conf backup=yes
+
+    - name: Enable port 8085 bind access to nginx
+      shell: semanage port -a -t http_port_t -p tcp 8085
+      ignore_errors: yes
+
+    - name: Additional configurations to enable port 8085 access to nginx
+      shell: ausearch -c 'nginx' --raw | audit2allow -M my-nginx && semodule -X 300 -i my-nginx.pp
+      ignore_errors: yes
+
+    - name: Restart nginx web server
+      service: name=nginx state=restarted enabled=yes
+
+    - name: Open up port 8085 in firewall
+      shell: firewall-cmd --add-port=8085/tcp --permanent --zone=public
+      ignore_errors: yes
+
+    - name: Reload firewall to apply recent port configurations
+      shell: firewall-cmd --reload
