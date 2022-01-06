@@ -135,4 +135,7 @@ Seach and Select the below plugins
 3. Ansible
 4. Ansible Tower
 
+Click on the "Install without restart" button.
+Once you see a summary of plugins, select the check that says "Restart Jenkins when installation is complete and no jobs are running".
+
 
