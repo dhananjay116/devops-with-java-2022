@@ -79,3 +79,40 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 </pre>
 
+
+# DevOps
+- it is a combination of process and tool
+- helps you deliver frequent releases to customer in a incremental fashion with confidence
+- when we deliver frequent releases in short interval, it tends to more unstable.  But with the help of DevOps tools
+  you should be automate test to catch bugs during development cycle so that you can release more stable releases to your customer
+ 
+## What is Continuous Integration?
+- a source code that was written 10~20 minutes, has to be integrated with dev branch several times a day
+- as and when your code is logically complete even 
+- once your source code is committed, Jenkins or similar CI Build server should detect code commit and trigger a build. As part of the build there were automated test cases execution, if there is any bug it would be reported in 15~20 minutes after your code checkin.
+- this entire process is automated i.e end-to-end build->test->report.
+
+### What is Continuous Deployment?
+- this next level of Continuous Integration
+- the release binaries which are tested in the CI process will be deployed automatically to QA or similar environments for further testing ( functionality, stress, load, performance, etc sort of testing )
+
+### What is Continuous Delivery?
+- this is next leve of Continuous Deployment
+- the release binaries which are tested in QA, pre-prod, staging environments will be delivered to customer's test environment or in some cases if the organization is confident about the CI/CD test process the release can be made live in production automatically.
+
+
+### Jenkins 
+- is a Continuous Integration(CI) Build Server
+- opensource product
+- it was developed by Josuke Kawaguchi a former Sun Microsystems employee as Hudson
+- Hudson is the name of the intial product, but once Oracle acquired Sun Microsystems Oracle had different strategy
+  the team that originally developed Hudson open source product they got split into two team. One team which didn't agree with Oracle stategy they came of Oracle and forked Hudson branch as Jenkins.  The other team which decided to stay back at Oracle continues to develop the Hudson product.
+Similar products
+  - Bamboo
+  - TeamCity
+  - Hudson
+  - Cloudbees - enterprise variant of Jenkins
+  - Microsoft Team Foundation Server (TFS)
+
+
+
