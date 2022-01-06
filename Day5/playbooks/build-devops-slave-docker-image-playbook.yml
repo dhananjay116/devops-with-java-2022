@@ -1,0 +1,34 @@
+- name: This playbook will build the devops jenkins slave image
+  hosts: localhost
+  become: yes
+  tasks:
+     - name: Remove devops jenkins slave image
+       shell: docker rmi tektutor/devops-jenkins-slave:latest
+       ignore_errors: yes
+
+     - name: Forward bridge traffic
+       shell: sysctl net.ipv4.conf.all.forwarding=1
+
+     - name: Update IP table rules to accept packet forwarding
+       shell: iptables -P FORWARD ACCEPT
+
+     - name: Install Extra Packages for Enterprise Linux (EPEL) in CentOS
+       yum: name=epel-release state=latest
+
+     - name: Install Python PIP in CentOS ACM
+       yum: name=python3-pip state=latest
+
+     - name: Install Docker Python SDK
+       shell: pip3 install docker-py
+
+     - name: Build devops jenkins slave docker image
+       docker_image:
+          name: "tektutor/devops-jenkins-slave:latest"
+          docker_host: tcp://localhost:4243
+          build:
+             dockerfile: Dockerfile
+             path: .
+             pull: no
+          state: present
+          source: build
+
