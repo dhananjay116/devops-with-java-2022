@@ -51,3 +51,31 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0    s
 download-artifacts-from-artifactory.yml  <b>frontend-1.0.0.jar</b>  README.md
 </pre>
 
+### Passing extra argument to Ansible playbook
+In the below command, my-var.yml file has multiple arguments that you could pass to your playbook.
+```
+cd /home/rps/devops-jan-2022
+git pull
+cd Day4
+ansible-playbook ansible-playbook passing-extra-args-to-playbook.yml -e @my-vars.yml
+```
+The expected output is 
+<pre>
+[jegan@tektutor Day4]$ <b>ansible-playbook passing-extra-args-to-playbook.yml -e @my-vars.yml</b>
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit
+localhost does not match 'all'
+
+PLAY [This playbook will demonstrate passing arguments to your playbook] ****************************
+
+TASK [Gathering Facts] ******************************************************************************
+ok: [localhost]
+
+TASK [debug] ****************************************************************************************
+ok: [localhost] => {
+    <b>"msg": "message --> Hello DevOps; jdk_path --> /usr/lib/jdk1.8/bin; maven home --> /usr/share/maven "</b>
+}
+
+PLAY RECAP ******************************************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+</pre>
+
