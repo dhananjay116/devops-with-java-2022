@@ -120,3 +120,6 @@ cd /home/rps/Downloads
 java -jar ./jenkins.war
 ```
 
+You may access Jenkins Dashboard from browser at http://localhost:8080
+
+
