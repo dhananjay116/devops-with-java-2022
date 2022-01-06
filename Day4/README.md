@@ -114,5 +114,9 @@ Similar products
   - Cloudbees - enterprise variant of Jenkins
   - Microsoft Team Foundation Server (TFS)
 
-
+### Starting Jenkins
+```
+cd /home/rps/Downloads
+java -jar ./jenkins.war
+```
 
