@@ -1,6 +1,6 @@
 pipeline {
     agent { 
-	docker "devops-jenkins-slave" 
+	"devops-jenkins-slave" 
     }
 
     tools {
