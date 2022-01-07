@@ -1,0 +1,47 @@
+pipeline {
+    agent any
+
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "MAVEN384"
+    }
+
+    stages {
+        stage('Compile') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/tektutor/spring-ms.git'
+
+                // Compile the application source code 
+                sh "mvn clean compile"
+            }
+        }
+        stage('Unit Test') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/tektutor/spring-ms.git'
+
+		//Perform unit test
+                sh "mvn test"
+            }
+        }
+        stage('Package') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/tektutor/spring-ms.git'
+
+                // Create jar file 
+                sh "mvn package"
+            }
+        }
+        stage('Install') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/tektutor/spring-ms.git'
+
+		// Install the artifacts into local maven repository
+                sh "mvn install"
+            }
+        }
+    }
+}
