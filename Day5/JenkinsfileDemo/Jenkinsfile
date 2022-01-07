@@ -1,5 +1,5 @@
 pipeline {
-    node "devops-jenkins-slave"
+    agent any
 
     tools {
         // This is the variable name "MAVEN384" configured in the Jenkins Global Tool Configuration under Add maven.
