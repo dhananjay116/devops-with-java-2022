@@ -61,6 +61,10 @@ http://172.17.0.7:9090
 ```
 You need to find the IP Address of your prometheus container and update the IP address accordingly.
 Once the Grafana is able to communicate with Prometheus, you may import Jenkins: Performance and Health Overview with Dashboard ID - 9964.
+For more details about the Jenkins Performacne and Health Overview Dashboard, you may check this
+```
+https://grafana.com/grafana/dashboards/9964
+```
 
 If all goes well, you should be able to view the Grafana visualizations that plots the live Prometheus performance metrics collected from Jenkins.
 
