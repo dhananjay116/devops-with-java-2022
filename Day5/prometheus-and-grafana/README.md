@@ -55,3 +55,13 @@ Password - admin
 
 You may change the password to "Admin@123" without quotes.
 
+You need to add a Prometheus Datasource, as part of that you need to connect to the Prometheus url
+```
+http://172.17.0.7:9090
+```
+You need to find the IP Address of your prometheus container and update the IP address accordingly.
+Once the Grafana is able to communicate with Prometheus, you may import Jenkins: Performance and Health Overview with Dashboard ID - 9964.
+
+If all goes well, you should be able to view the Grafana visualizations that plots the live Prometheus performance metrics collected from Jenkins.
+
+
