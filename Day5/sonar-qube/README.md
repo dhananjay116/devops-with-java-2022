@@ -12,6 +12,12 @@ You may now connect to the SonarQube web page from your favourite web browser
 ```
 http://localhost:9000
 ```
+The default login credentials are
+<pre>
+username - admin
+password - admin
+</pre>
+After your first login, you will be prompted to change your password.  In my case I changed it to "Admin@123" without quotes.
 
 We need to create a new project and generate a token in order to perform static analyzis on our project for coding violations. The token is used to login to sonarqube and upload the sonarqube reports to the SonarQube server.
 
