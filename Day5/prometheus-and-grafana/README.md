@@ -69,3 +69,12 @@ https://grafana.com/grafana/dashboards/9964
 If all goes well, you should be able to view the Grafana visualizations that plots the live Prometheus performance metrics collected from Jenkins.
 
 
+# DevOps Pipeline
+
+1. As soon as as code is committed to TekTutor devops-jan-2022 GitHub repository, the Jenkins job we will create will detect the code change and trigger "Custom Docker Slave Image Build".  The "Custom Docker Slave Image Build" is the Stage1 Jenkins Job.
+2. On Success, the "Custom Docker Slave Image Build" will then trigger "Build CRM" Stage2 Jenkins Job.
+3. The "Build CRM" Stage2 Jenkins requires a Jenkins slave container with Maven and JDK to perform the CRM project maven build.  But the container will only be created on demand. Hence the "Build CRM" will request the Jenkins Server to create a container mentioning the Container configuration.
+4. Jenkins server then picks the Docker container configuration mentioned by the "Build CRM" job and will request the Docker Application Engine for a new container.
+5. The Docker Application Engine will create a new container and notifies the Jenkins Server.
+6. The Jenkins Server then notifies the "Build CRM" Jenkins Job to make use of the new container that was created on demand.
+7. Once the "Build CRM" Jenkins Job is successfuly build, the "Build CRM" job will notify Jenkins Server that it doesn't require the container anymore, hence it will be deleted once build gets completed(SUCCESS/Fail) it then triggers another downstream Job i.e "Deploy CRM artifacts to JFrog Artifactory".
