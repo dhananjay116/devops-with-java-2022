@@ -38,7 +38,7 @@ docker cp prometheus.yml prometheus-container:/etc/prometheus/prometheus.yml
 docker restart prometheus-container
 ```
 
-# Creating the Graphana container for setting up Grafana Dashboard for the Jenkins Metrics collected by Prometheus
+# Creating the Grafana container for setting up Grafana Dashboard for the Jenkins Metrics collected by Prometheus
 ```
 docker run -d --name grafana -p 3000:3000 grafana/grafana:latest
 ```
