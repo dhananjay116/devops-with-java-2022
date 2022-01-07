@@ -1,7 +1,7 @@
 pipeline {
-     agent { 
-		docker { image 'maven:latest' } 
-     }
+    agent { 
+	docker { image 'maven:latest' } 
+    }
 
     tools {
         // This is the variable name "MAVEN384" configured in the Jenkins Global Tool Configuration under Add maven.
