@@ -1,3 +1,11 @@
+### Creating Build Docker Jenkins Slave Image as FreeStyle Job
+1. Create a Freestyle Job, give a name "Build Docker Jenkins Slave Image"
+2. In the General Section, Select the checkbox "Restrict where this project can be run" and type "master".
+3. In the Source Code Management Section, Select Git option box and type "https://github.com/tektutor/devops-jan-2022.git"
+4. Under Source Code Management Section --> Branches to Build -> Branch Specifier (blank for 'any') type "*/main"
+5. Under Build Triggers Section, select Poll SCM and type "H/02 * * * *"
+6. Under Build Section, Select Invoke Ansible Playbook
+7. 
 ### Creating Compile CRM FreeStyle Job
 1. Create a FreeStyle Job, give a name "Compile CRM"
 2. In the General Section, Select the checkbox "Restrict where this project can be run" and type "devops-jenkins-slave".
