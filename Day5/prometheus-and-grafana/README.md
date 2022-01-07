@@ -42,4 +42,16 @@ docker restart prometheus-container
 ```
 docker run -d --name grafana -p 3000:3000 grafana/grafana:latest
 ```
+You may access the Grafana Dashboard at URL
+```
+http://localhost:3000
+```
+
+Login credentials are
+<pre>
+Username - admin
+Password - admin
+</pre>
+
+You may change the password to "Admin@123" without quotes.
 
