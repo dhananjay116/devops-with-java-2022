@@ -1,8 +1,8 @@
 pipeline {
-    agent any
+    agent "devops-jenkins-slave"
 
     tools {
-        // Install the Maven version configured as "M3" and add it to the path.
+        // This is the variable name "MAVEN384" configured in the Jenkins Global Tool Configuration under Add maven.
         maven "MAVEN384"
     }
 
